@@ -287,7 +287,7 @@
       margin-bottom: 48px;
     }
 
-    /* ─── ABOUT ─── */
+    /* ─── sobre ─── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -352,7 +352,6 @@
       color: var(--accent);
     }
 
-    /* ─── PROJECTS ─── */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -401,9 +400,21 @@
       z-index: 1;
     }
 
+    .project-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .project-thumb.has-img::after { display: none; }
+
     .thumb-1 { background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%); }
     .thumb-2 { background: linear-gradient(135deg, #10b981 0%, #0891b2 100%); }
     .thumb-3 { background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
+    .thumb-butterfly { background: linear-gradient(135deg, #3b0a2a 0%, #db2777 100%); }
 
     .project-body {
       padding: 24px;
@@ -426,7 +437,24 @@
       font-weight: 300;
       line-height: 1.7;
       flex: 1;
+      margin-bottom: 18px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
       margin-bottom: 20px;
+    }
+
+    .project-tags li {
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-strong);
+      padding: 3px 10px;
+      border-radius: 6px;
     }
 
     .project-links {
@@ -451,6 +479,22 @@
       content: '↗';
       font-size: 0.75rem;
       opacity: 0.6;
+    }
+
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .project-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
     }
 
     /* ─── CONTACT ─── */
@@ -514,7 +558,7 @@
       background: var(--border);
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* ─── animação ─── */
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
@@ -553,7 +597,7 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- hero-->
     <section class="hero container" id="inicio">
       <div class="hero-text">
         <div class="hero-eyebrow">Disponível para oportunidades</div>
@@ -583,7 +627,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- SOBRE -->
+    <!-- SOBRE MIM -->
     <section id="sobre">
       <div class="container">
         <p class="section-label">Sobre mim</p>
@@ -623,48 +667,47 @@
         <p class="section-desc">O que já saiu do papel e virou código.</p>
 
         <div class="projects-grid">
-          <!-- Troque título, descrição e links (href="#") pelos seus projetos reais -->
+
+          <!-- PROJETO 1: Loja Butterfly -->
+          <article class="project-card">
+            <div class="project-thumb thumb-butterfly">
+              <span>🦋</span>
+            </div>
+            <div class="project-body">
+              <h3>Loja Butterfly</h3>
+              <p>Sistema web de gestão para uma loja de papelaria/bazar. Reúne PDV, controle de estoque, caixa, cadastro de produtos e um painel de relatórios com gráficos. O acesso é protegido por login com senhas criptografadas.</p>
+              <ul class="project-tags">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLite / PostgreSQL</li>
+                <li>Chart.js</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/DevHenriqueBelchior" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 2: Sistema de Certificados (em desenvolvimento) -->
           <article class="project-card">
             <div class="project-thumb thumb-1">
-              <span>01</span>
+              <span>🎓</span>
             </div>
             <div class="project-body">
-              <h3>Projeto 01</h3>
-              <p>Descrição do que este projeto faz, qual problema resolve e quais tecnologias foram usadas.</p>
+              <h3>Sistema de Certificados</h3>
+              <p>Sistema web para emissão e validação de certificados em PDF, cada um com código único. Terá painel administrativo, níveis de acesso, histórico de emissões e uma página pública para validar certificados.</p>
+              <ul class="project-tags">
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>API</li>
+              </ul>
               <div class="project-links">
-                <a href="#">GitHub</a>
-                <a href="#">Ver projeto</a>
+                <span class="project-status">Em desenvolvimento</span>
               </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-thumb thumb-2">
-              <span>02</span>
-            </div>
-            <div class="project-body">
-              <h3>Projeto 02</h3>
-              <p>Descrição do que este projeto faz, qual problema resolve e quais tecnologias foram usadas.</p>
-              <div class="project-links">
-                <a href="#">GitHub</a>
-                <a href="#">Ver projeto</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-thumb thumb-3">
-              <span>03</span>
-            </div>
-            <div class="project-body">
-              <h3>Projeto 03</h3>
-              <p>Descrição do que este projeto faz, qual problema resolve e quais tecnologias foram usadas.</p>
-              <div class="project-links">
-                <a href="#">GitHub</a>
-                <a href="#">Ver projeto</a>
-              </div>
-            </div>
-          </article>
+          <!-- Proximo Projeto -->
         </div>
       </div>
     </section>
